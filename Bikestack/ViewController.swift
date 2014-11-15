@@ -22,6 +22,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var spotDetailTitle: UILabel!
     @IBOutlet weak var spotDetailSubtitle: UILabel!
     @IBOutlet weak var spotDetailImageView: UIImageView!
+    @IBOutlet weak var addSpotDetailView: UIView!
+    @IBOutlet weak var addSpotNameField: UITextField!
+    @IBOutlet weak var addSpotDescriptionField: UITextView!
     
     var locationManager: CLLocationManager!
     var currentSpots = [Int: BSSpot]() //: Dictionary<Int, BSSpot>
@@ -40,9 +43,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
         inited = false
+        
+        spotDetailView.layer.cornerRadius = 8
+        addSpotDetailView.layer.cornerRadius = 8
+        addSpotDescriptionField.layer.borderColor = UIColor.lightGrayColor().CGColor
+        addSpotDescriptionField.layer.borderWidth = 1.0
+        addSpotDescriptionField.layer.cornerRadius = 8
     }
     
     @IBAction func submitPressed(sender: AnyObject) {
+        
+//        let newSpot = BSSpot(coord: locationManager.location.coordinate, name: <#String#>, desc: <#String#>, cap: <#Int#>)
+        
         let params: Dictionary<String,AnyObject> = ["lat" : locationManager.location.coordinate.latitude, "long" : locationManager.location.coordinate.longitude, "name" : "test spot"]
         
         var request = HTTPTask()
@@ -50,16 +62,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         println("params are \(params)")
         
-        request.POST(apiCreateSpot, parameters: params, success: {(response: HTTPResponse) in
-            println("Got data from \(apiBaseUrl + apiCreateSpot)")
-            },failure: {(error: NSError, response: HTTPResponse?) in
-                println("print the error: \(error)")
-                println("print the response: \(response)")
-        })
+        let newSpot = MKPointAnnotation()
+        newSpot.coordinate = locationManager.location.coordinate
+        newSpot.title = "new spot"
+        mapView.addAnnotation(newSpot)
+        
+        addSpotDetailView.hidden = false
+        
+//        request.POST(apiCreateSpot, parameters: params, success: {(response: HTTPResponse) in
+//            println("Got data from \(apiBaseUrl + apiCreateSpot)")
+//            },failure: {(error: NSError, response: HTTPResponse?) in
+//                println("print the error: \(error)")
+//                println("print the response: \(response)")
+//        })
+    }
+    
+    @IBAction func addNewSpot(sender: AnyObject) {
+        println("add a new spot: \(addSpotNameField.text) \(addSpotDescriptionField.text)")
     }
     
     @IBAction func centerOnLocation(sender: AnyObject) {
-        let region = MKCoordinateRegion(center: locationManager.location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let region = MKCoordinateRegion(center: locationManager.location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         mapView.setRegion(region, animated: true)
 //        mapView.setCenterCoordinate(locationManager.location.coordinate, animated: true)
     }
@@ -72,7 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let location = locations.last as CLLocation
             
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
             
             mapView.setRegion(region, animated: false)
         }
@@ -111,17 +134,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             //return nil so map view draws "blue dot" for standard user location
             return nil
         }
+        else if annotation is BSSpot {
+            let reuseId = "pin"
+            
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = true
+                pinView!.pinColor = .Green
+                let calloutBtn = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+                calloutBtn.addTarget(self, action: "showSpotDetails:", forControlEvents: UIControlEvents.TouchUpInside)
+                pinView?.rightCalloutAccessoryView = calloutBtn as UIView
+            }
+            else {
+                pinView!.annotation = annotation
+            }
         
-        let reuseId = "pin"
+            return pinView
+        }
+
+        let reuseId = "newpin"
         
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.pinColor = .Green
-            let calloutBtn = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
-            calloutBtn.addTarget(self, action: "showSpotDetails:", forControlEvents: UIControlEvents.TouchUpInside)
-            pinView?.rightCalloutAccessoryView = calloutBtn as UIView
+            pinView!.pinColor = .Purple
         }
         else {
             pinView!.annotation = annotation
@@ -135,9 +172,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
 
     func addPointsFromList(list: Array< Dictionary<String,AnyObject> >) {
+        // TODO: Need to get rid of old spots??
 //        mapView.removeAnnotations(currentSpots)
-        
-        println("add points from \(list)")
         for item in list {
             let spot = BSSpot(jsonDict: item)
             currentSpots[spot.id] = spot
@@ -146,7 +182,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func showSpotDetails(sender: UIButton!) {
-        println("Button tapped")
         let annotations = mapView.selectedAnnotations
         if annotations.count != 1 {
             return

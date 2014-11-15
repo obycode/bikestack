@@ -25,4 +25,12 @@ class BSSpot : NSObject, MKAnnotation {
         title = jsonDict["name"] as String
         subtitle = jsonDict["description"] as String
     }
+    
+    init(coord:CLLocationCoordinate2D, name:String, desc:String, cap:Int) {
+        coordinate = coord
+        title = name
+        subtitle = desc
+        id = -1
+        capacity = cap
+    }
 }
