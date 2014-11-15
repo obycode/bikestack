@@ -39,8 +39,25 @@
                                     <action selector="submitPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LLY-dF-bwB"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-X6-LNy">
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-X6-LNy">
                                 <rect key="frame" x="77" y="79" width="220" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wgg-RJ-xul">
+                                        <rect key="frame" x="8" y="8" width="204" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-i1-vj2">
+                                        <rect key="frame" x="8" y="271" width="204" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exampleBikeRack.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2pW-d8-RKv">
+                                        <rect key="frame" x="29" y="48" width="162" height="113"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -49,6 +66,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="bHi-UY-kkI" id="g1D-63-IBh"/>
+                        <outlet property="spotDetailImageView" destination="2pW-d8-RKv" id="1VG-YO-EZ1"/>
+                        <outlet property="spotDetailSubtitle" destination="kh2-i1-vj2" id="GZo-nW-eOT"/>
+                        <outlet property="spotDetailTitle" destination="Wgg-RJ-xul" id="Yf3-I9-Ubg"/>
                         <outlet property="spotDetailView" destination="5Uk-X6-LNy" id="aNh-w3-Y4y"/>
                     </connections>
                 </viewController>
@@ -58,6 +78,7 @@
     </scenes>
     <resources>
         <image name="addSpot.png" width="36" height="36"/>
+        <image name="exampleBikeRack.jpg" width="324" height="227"/>
         <image name="locationArrow.png" width="32" height="32"/>
     </resources>
 </document>

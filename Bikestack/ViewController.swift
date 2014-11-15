@@ -17,10 +17,14 @@ let apiFindSpots = "/api/spots/find" // POST: lat, lon, radius (miles, defaults 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
     @IBOutlet weak var spotDetailView: UIView!
+    @IBOutlet weak var spotDetailTitle: UILabel!
+    @IBOutlet weak var spotDetailSubtitle: UILabel!
+    @IBOutlet weak var spotDetailImageView: UIImageView!
     
     var locationManager: CLLocationManager!
-    var currentSpots: Array<MKAnnotation>!
+    var currentSpots = [Int: BSSpot]() //: Dictionary<Int, BSSpot>
     var inited: Bool!
     
     override func viewDidLoad() {
@@ -115,7 +119,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinColor = .Green
-            pinView?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIView
+            let calloutBtn = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+            calloutBtn.addTarget(self, action: "showSpotDetails:", forControlEvents: UIControlEvents.TouchUpInside)
+            pinView?.rightCalloutAccessoryView = calloutBtn as UIView
         }
         else {
             pinView!.annotation = annotation
@@ -123,15 +129,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         return pinView
     }
+    
+    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        spotDetailView.hidden = true
+    }
 
     func addPointsFromList(list: Array< Dictionary<String,AnyObject> >) {
-        mapView.removeAnnotations(currentSpots)
+//        mapView.removeAnnotations(currentSpots)
         
         println("add points from \(list)")
         for item in list {
             let spot = BSSpot(jsonDict: item)
-            mapView.addAnnotation(spot.annotation)
+            currentSpots[spot.id] = spot
+            mapView.addAnnotation(spot)
         }
+    }
+    
+    func showSpotDetails(sender: UIButton!) {
+        println("Button tapped")
+        let annotations = mapView.selectedAnnotations
+        if annotations.count != 1 {
+            return
+        }
+        
+        let selectedSpot: BSSpot = mapView.selectedAnnotations[0] as BSSpot
+        
+        spotDetailTitle.text = selectedSpot.title
+        spotDetailSubtitle.text = selectedSpot.subtitle
+        spotDetailImageView = UIImageView(image: UIImage(named: "exampleBikeRack.jpg"))
+        spotDetailView.hidden = false
     }
     
     override func didReceiveMemoryWarning() {
