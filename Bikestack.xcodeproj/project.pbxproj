@@ -13,6 +13,12 @@
 		CF849EFB1A170ACB0074B4DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF849EFA1A170ACB0074B4DA /* Images.xcassets */; };
 		CF849EFE1A170ACB0074B4DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF849EFC1A170ACB0074B4DA /* LaunchScreen.xib */; };
 		CF849F0A1A170ACB0074B4DA /* BikestackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F091A170ACB0074B4DA /* BikestackTests.swift */; };
+		CF849F141A170AF60074B4DA /* BSSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F131A170AF60074B4DA /* BSSpot.swift */; };
+		CF849F161A170B6E0074B4DA /* FileHTTPRequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F151A170B6E0074B4DA /* FileHTTPRequestSerializer.swift */; };
+		CF849F181A170B9D0074B4DA /* HTTPResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F171A170B9D0074B4DA /* HTTPResponseSerializer.swift */; };
+		CF849F1A1A170BC70074B4DA /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F191A170BC70074B4DA /* HTTPTask.swift */; };
+		CF849F1C1A170BFA0074B4DA /* HTTPUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F1B1A170BFA0074B4DA /* HTTPUpload.swift */; };
+		CF849F1E1A170C220074B4DA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF849F1D1A170C220074B4DA /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		CF849F031A170ACB0074B4DA /* BikestackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikestackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF849F081A170ACB0074B4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF849F091A170ACB0074B4DA /* BikestackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikestackTests.swift; sourceTree = "<group>"; };
+		CF849F131A170AF60074B4DA /* BSSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSSpot.swift; sourceTree = "<group>"; };
+		CF849F151A170B6E0074B4DA /* FileHTTPRequestSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHTTPRequestSerializer.swift; sourceTree = "<group>"; };
+		CF849F171A170B9D0074B4DA /* HTTPResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseSerializer.swift; sourceTree = "<group>"; };
+		CF849F191A170BC70074B4DA /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		CF849F1B1A170BFA0074B4DA /* HTTPUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPUpload.swift; sourceTree = "<group>"; };
+		CF849F1D1A170C220074B4DA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF849F1E1A170C220074B4DA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +72,7 @@
 		CF849EE51A170ACB0074B4DA = {
 			isa = PBXGroup;
 			children = (
+				CF849F1D1A170C220074B4DA /* MapKit.framework */,
 				CF849EF01A170ACB0074B4DA /* Bikestack */,
 				CF849F061A170ACB0074B4DA /* BikestackTests */,
 				CF849EEF1A170ACB0074B4DA /* Products */,
@@ -79,6 +93,11 @@
 			children = (
 				CF849EF31A170ACB0074B4DA /* AppDelegate.swift */,
 				CF849EF51A170ACB0074B4DA /* ViewController.swift */,
+				CF849F131A170AF60074B4DA /* BSSpot.swift */,
+				CF849F151A170B6E0074B4DA /* FileHTTPRequestSerializer.swift */,
+				CF849F171A170B9D0074B4DA /* HTTPResponseSerializer.swift */,
+				CF849F191A170BC70074B4DA /* HTTPTask.swift */,
+				CF849F1B1A170BFA0074B4DA /* HTTPUpload.swift */,
 				CF849EF71A170ACB0074B4DA /* Main.storyboard */,
 				CF849EFA1A170ACB0074B4DA /* Images.xcassets */,
 				CF849EFC1A170ACB0074B4DA /* LaunchScreen.xib */,
@@ -161,6 +180,11 @@
 				TargetAttributes = {
 					CF849EED1A170ACB0074B4DA = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					CF849F021A170ACB0074B4DA = {
 						CreatedOnToolsVersion = 6.1;
@@ -212,8 +236,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF849F1A1A170BC70074B4DA /* HTTPTask.swift in Sources */,
+				CF849F141A170AF60074B4DA /* BSSpot.swift in Sources */,
+				CF849F1C1A170BFA0074B4DA /* HTTPUpload.swift in Sources */,
+				CF849F161A170B6E0074B4DA /* FileHTTPRequestSerializer.swift in Sources */,
 				CF849EF61A170ACB0074B4DA /* ViewController.swift in Sources */,
 				CF849EF41A170ACB0074B4DA /* AppDelegate.swift in Sources */,
+				CF849F181A170B9D0074B4DA /* HTTPResponseSerializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
