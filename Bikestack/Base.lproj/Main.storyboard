@@ -16,17 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-UY-kkI">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="hybrid" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-UY-kkI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zq-O4-lH2">
-                                <rect key="frame" x="323" y="611" width="36" height="36"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" image="addSpot.png"/>
                                 <connections>
-                                    <action selector="submitPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LLY-dF-bwB"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="djA-mw-y60"/>
                                 </connections>
-                            </button>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-BX-jRQ">
                                 <rect key="frame" x="16" y="613" width="32" height="32"/>
                                 <state key="normal" image="locationArrow.png">
@@ -36,12 +31,25 @@
                                     <action selector="centerOnLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mms-oe-FX0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zq-O4-lH2">
+                                <rect key="frame" x="323" y="611" width="36" height="36"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" image="addSpot.png"/>
+                                <connections>
+                                    <action selector="submitPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LLY-dF-bwB"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-X6-LNy">
+                                <rect key="frame" x="77" y="79" width="220" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="bHi-UY-kkI" id="g1D-63-IBh"/>
+                        <outlet property="spotDetailView" destination="5Uk-X6-LNy" id="aNh-w3-Y4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
