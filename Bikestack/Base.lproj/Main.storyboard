@@ -22,24 +22,17 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="djA-mw-y60"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-BX-jRQ">
-                                <rect key="frame" x="16" y="613" width="32" height="32"/>
-                                <state key="normal" image="locationArrow.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="centerOnLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mms-oe-FX0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zq-O4-lH2">
-                                <rect key="frame" x="323" y="611" width="36" height="36"/>
+                                <rect key="frame" x="295" y="583" width="64" height="64"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" image="addSpot.png"/>
+                                <state key="normal" image="addSpot.png">
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="submitPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LLY-dF-bwB"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-X6-LNy">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-X6-LNy">
                                 <rect key="frame" x="77" y="79" width="220" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wgg-RJ-xul">
@@ -48,8 +41,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-i1-vj2">
-                                        <rect key="frame" x="8" y="271" width="204" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-i1-vj2">
+                                        <rect key="frame" x="8" y="248" width="204" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -60,6 +53,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-BX-jRQ">
+                                <rect key="frame" x="16" y="583" width="64" height="64"/>
+                                <state key="normal" image="locationArrow.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerOnLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mms-oe-FX0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -77,8 +79,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addSpot.png" width="36" height="36"/>
+        <image name="addSpot.png" width="64" height="64"/>
         <image name="exampleBikeRack.jpg" width="324" height="227"/>
-        <image name="locationArrow.png" width="32" height="32"/>
+        <image name="locationArrow.png" width="64" height="64"/>
     </resources>
 </document>

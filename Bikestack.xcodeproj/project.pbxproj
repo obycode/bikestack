@@ -24,6 +24,7 @@
 		CF849F271A17C0E80074B4DA /* addSpot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F261A17C0E80074B4DA /* addSpot@2x.png */; };
 		CF849F2B1A17C3DB0074B4DA /* BSSpotAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F2A1A17C3DB0074B4DA /* BSSpotAnnotation.swift */; };
 		CF849F2D1A17F5EE0074B4DA /* exampleBikeRack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF849F2C1A17F5EE0074B4DA /* exampleBikeRack.jpg */; };
+		CF849F2F1A17FC0D0074B4DA /* locationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F2E1A17FC0D0074B4DA /* locationArrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CF849F261A17C0E80074B4DA /* addSpot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addSpot@2x.png"; path = "../../../images/addSpot@2x.png"; sourceTree = "<group>"; };
 		CF849F2A1A17C3DB0074B4DA /* BSSpotAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSSpotAnnotation.swift; sourceTree = "<group>"; };
 		CF849F2C1A17F5EE0074B4DA /* exampleBikeRack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = exampleBikeRack.jpg; path = ../../../images/exampleBikeRack.jpg; sourceTree = "<group>"; };
+		CF849F2E1A17FC0D0074B4DA /* locationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locationArrow@2x.png"; path = "../../../images/locationArrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		CF849F1F1A17B47E0074B4DA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CF849F2E1A17FC0D0074B4DA /* locationArrow@2x.png */,
 				CF849F2C1A17F5EE0074B4DA /* exampleBikeRack.jpg */,
 				CF849F261A17C0E80074B4DA /* addSpot@2x.png */,
 				CF849F221A17B5A20074B4DA /* locationArrow.png */,
@@ -244,6 +247,7 @@
 				CF849F231A17B5A20074B4DA /* locationArrow.png in Resources */,
 				CF849EF91A170ACB0074B4DA /* Main.storyboard in Resources */,
 				CF849EFE1A170ACB0074B4DA /* LaunchScreen.xib in Resources */,
+				CF849F2F1A17FC0D0074B4DA /* locationArrow@2x.png in Resources */,
 				CF849EFB1A170ACB0074B4DA /* Images.xcassets in Resources */,
 				CF849F251A17BC610074B4DA /* addSpot.png in Resources */,
 			);
