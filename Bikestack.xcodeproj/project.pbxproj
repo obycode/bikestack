@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF849EF41A170ACB0074B4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849EF31A170ACB0074B4DA /* AppDelegate.swift */; };
+		CF849EF61A170ACB0074B4DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849EF51A170ACB0074B4DA /* ViewController.swift */; };
+		CF849EF91A170ACB0074B4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF849EF71A170ACB0074B4DA /* Main.storyboard */; };
+		CF849EFB1A170ACB0074B4DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF849EFA1A170ACB0074B4DA /* Images.xcassets */; };
+		CF849EFE1A170ACB0074B4DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF849EFC1A170ACB0074B4DA /* LaunchScreen.xib */; };
+		CF849F0A1A170ACB0074B4DA /* BikestackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF849F091A170ACB0074B4DA /* BikestackTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF849F041A170ACB0074B4DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF849EE61A170ACB0074B4DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF849EED1A170ACB0074B4DA;
+			remoteInfo = Bikestack;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CF849EEE1A170ACB0074B4DA /* Bikestack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bikestack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF849EF21A170ACB0074B4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF849EF31A170ACB0074B4DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF849EF51A170ACB0074B4DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF849EF81A170ACB0074B4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF849EFA1A170ACB0074B4DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF849EFD1A170ACB0074B4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CF849F031A170ACB0074B4DA /* BikestackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikestackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF849F081A170ACB0074B4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF849F091A170ACB0074B4DA /* BikestackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikestackTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF849EEB1A170ACB0074B4DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF849F001A170ACB0074B4DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF849EE51A170ACB0074B4DA = {
+			isa = PBXGroup;
+			children = (
+				CF849EF01A170ACB0074B4DA /* Bikestack */,
+				CF849F061A170ACB0074B4DA /* BikestackTests */,
+				CF849EEF1A170ACB0074B4DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF849EEF1A170ACB0074B4DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF849EEE1A170ACB0074B4DA /* Bikestack.app */,
+				CF849F031A170ACB0074B4DA /* BikestackTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF849EF01A170ACB0074B4DA /* Bikestack */ = {
+			isa = PBXGroup;
+			children = (
+				CF849EF31A170ACB0074B4DA /* AppDelegate.swift */,
+				CF849EF51A170ACB0074B4DA /* ViewController.swift */,
+				CF849EF71A170ACB0074B4DA /* Main.storyboard */,
+				CF849EFA1A170ACB0074B4DA /* Images.xcassets */,
+				CF849EFC1A170ACB0074B4DA /* LaunchScreen.xib */,
+				CF849EF11A170ACB0074B4DA /* Supporting Files */,
+			);
+			path = Bikestack;
+			sourceTree = "<group>";
+		};
+		CF849EF11A170ACB0074B4DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF849EF21A170ACB0074B4DA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF849F061A170ACB0074B4DA /* BikestackTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF849F091A170ACB0074B4DA /* BikestackTests.swift */,
+				CF849F071A170ACB0074B4DA /* Supporting Files */,
+			);
+			path = BikestackTests;
+			sourceTree = "<group>";
+		};
+		CF849F071A170ACB0074B4DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF849F081A170ACB0074B4DA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF849EED1A170ACB0074B4DA /* Bikestack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF849F0D1A170ACB0074B4DA /* Build configuration list for PBXNativeTarget "Bikestack" */;
+			buildPhases = (
+				CF849EEA1A170ACB0074B4DA /* Sources */,
+				CF849EEB1A170ACB0074B4DA /* Frameworks */,
+				CF849EEC1A170ACB0074B4DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bikestack;
+			productName = Bikestack;
+			productReference = CF849EEE1A170ACB0074B4DA /* Bikestack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF849F021A170ACB0074B4DA /* BikestackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF849F101A170ACB0074B4DA /* Build configuration list for PBXNativeTarget "BikestackTests" */;
+			buildPhases = (
+				CF849EFF1A170ACB0074B4DA /* Sources */,
+				CF849F001A170ACB0074B4DA /* Frameworks */,
+				CF849F011A170ACB0074B4DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF849F051A170ACB0074B4DA /* PBXTargetDependency */,
+			);
+			name = BikestackTests;
+			productName = BikestackTests;
+			productReference = CF849F031A170ACB0074B4DA /* BikestackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF849EE61A170ACB0074B4DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = obycode;
+				TargetAttributes = {
+					CF849EED1A170ACB0074B4DA = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					CF849F021A170ACB0074B4DA = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = CF849EED1A170ACB0074B4DA;
+					};
+				};
+			};
+			buildConfigurationList = CF849EE91A170ACB0074B4DA /* Build configuration list for PBXProject "Bikestack" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF849EE51A170ACB0074B4DA;
+			productRefGroup = CF849EEF1A170ACB0074B4DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF849EED1A170ACB0074B4DA /* Bikestack */,
+				CF849F021A170ACB0074B4DA /* BikestackTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF849EEC1A170ACB0074B4DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF849EF91A170ACB0074B4DA /* Main.storyboard in Resources */,
+				CF849EFE1A170ACB0074B4DA /* LaunchScreen.xib in Resources */,
+				CF849EFB1A170ACB0074B4DA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF849F011A170ACB0074B4DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF849EEA1A170ACB0074B4DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF849EF61A170ACB0074B4DA /* ViewController.swift in Sources */,
+				CF849EF41A170ACB0074B4DA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF849EFF1A170ACB0074B4DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF849F0A1A170ACB0074B4DA /* BikestackTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF849F051A170ACB0074B4DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF849EED1A170ACB0074B4DA /* Bikestack */;
+			targetProxy = CF849F041A170ACB0074B4DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF849EF71A170ACB0074B4DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF849EF81A170ACB0074B4DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CF849EFC1A170ACB0074B4DA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF849EFD1A170ACB0074B4DA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF849F0B1A170ACB0074B4DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CF849F0C1A170ACB0074B4DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF849F0E1A170ACB0074B4DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Bikestack/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CF849F0F1A170ACB0074B4DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Bikestack/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CF849F111A170ACB0074B4DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BikestackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bikestack.app/Bikestack";
+			};
+			name = Debug;
+		};
+		CF849F121A170ACB0074B4DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BikestackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bikestack.app/Bikestack";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF849EE91A170ACB0074B4DA /* Build configuration list for PBXProject "Bikestack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF849F0B1A170ACB0074B4DA /* Debug */,
+				CF849F0C1A170ACB0074B4DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF849F0D1A170ACB0074B4DA /* Build configuration list for PBXNativeTarget "Bikestack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF849F0E1A170ACB0074B4DA /* Debug */,
+				CF849F0F1A170ACB0074B4DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CF849F101A170ACB0074B4DA /* Build configuration list for PBXNativeTarget "BikestackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF849F111A170ACB0074B4DA /* Debug */,
+				CF849F121A170ACB0074B4DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF849EE61A170ACB0074B4DA /* Project object */;
+}
