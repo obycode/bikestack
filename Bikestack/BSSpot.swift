@@ -24,5 +24,6 @@ class BSSpot {
         annotation = MKPointAnnotation()
         annotation.setCoordinate(location)
         annotation.title = jsonDict["name"] as String
+        annotation.subtitle = jsonDict["description"] as String
     }
 }

@@ -19,20 +19,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-UY-kkI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zq-O4-lH2">
-                                <rect key="frame" x="191" y="602" width="145" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zq-O4-lH2">
+                                <rect key="frame" x="323" y="611" width="36" height="36"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="Unlock"/>
+                                <state key="normal" image="addSpot.png"/>
                                 <connections>
                                     <action selector="submitPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LLY-dF-bwB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjl-om-iW3">
-                                <rect key="frame" x="38" y="602" width="145" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="Lock Up"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-BX-jRQ">
+                                <rect key="frame" x="16" y="613" width="32" height="32"/>
+                                <state key="normal" image="locationArrow.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerOnLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mms-oe-FX0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -46,4 +48,8 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="addSpot.png" width="36" height="36"/>
+        <image name="locationArrow.png" width="32" height="32"/>
+    </resources>
 </document>
