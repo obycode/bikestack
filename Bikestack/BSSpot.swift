@@ -29,8 +29,13 @@ class BSSpot : NSObject, MKAnnotation {
         coordinate = CLLocationCoordinate2D(latitude: jsonDict["lat"] as Double, longitude: jsonDict["lon"] as Double)
         title = jsonDict["name"] as String
         subtitle = jsonDict["description"] as String
-        if let url = jsonDict["photo_file_name"] as? String {
-            photoUrl = url
+        if let url = jsonDict["url"] as? String {
+            if url == "/images/medium/missing.png" {
+                photoUrl = ""
+            }
+            else {
+                photoUrl = url
+            }
         }
         else {
             photoUrl = ""
