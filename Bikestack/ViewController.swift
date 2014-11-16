@@ -53,32 +53,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBAction func submitPressed(sender: AnyObject) {
         
-//        let newSpot = BSSpot(coord: locationManager.location.coordinate, name: <#String#>, desc: <#String#>, cap: <#Int#>)
+        let newSpot = BSSpot(coord: locationManager.location.coordinate, name: "", desc: "", cap: 1)
+        // -1 is the holder for a new spot
+        currentSpots[-1] = newSpot
         
-        let params: Dictionary<String,AnyObject> = ["lat" : locationManager.location.coordinate.latitude, "long" : locationManager.location.coordinate.longitude, "name" : "test spot"]
-        
-        var request = HTTPTask()
-        request.baseURL = apiBaseUrl
-        
-        println("params are \(params)")
-        
-        let newSpot = MKPointAnnotation()
-        newSpot.coordinate = locationManager.location.coordinate
-        newSpot.title = "new spot"
         mapView.addAnnotation(newSpot)
         
         addSpotDetailView.hidden = false
-        
-//        request.POST(apiCreateSpot, parameters: params, success: {(response: HTTPResponse) in
-//            println("Got data from \(apiBaseUrl + apiCreateSpot)")
-//            },failure: {(error: NSError, response: HTTPResponse?) in
-//                println("print the error: \(error)")
-//                println("print the response: \(response)")
-//        })
+    }
+    
+    @IBAction func cancelNewSpot(sender: AnyObject) {
+        addSpotDetailView.hidden = true
+        addSpotNameField.text = ""
+        addSpotNameField.resignFirstResponder()
+        addSpotDescriptionField.text = ""
+        addSpotDescriptionField.resignFirstResponder()
+        currentSpots[-1] = nil
     }
     
     @IBAction func addNewSpot(sender: AnyObject) {
         println("add a new spot: \(addSpotNameField.text) \(addSpotDescriptionField.text)")
+        let newSpot = currentSpots[-1]!
+        newSpot.title = addSpotNameField.text
+        newSpot.subtitle = addSpotDescriptionField.text
+        let dict: Dictionary<String, AnyObject> = ["lat": newSpot.coordinate.latitude, "lon": newSpot.coordinate.longitude, "name": newSpot.title, "description": newSpot.subtitle, "capacity": newSpot.capacity]
+        let params: Dictionary<String, AnyObject> = ["lock_up": dict]
+        var request = HTTPTask()
+        request.baseURL = apiBaseUrl
+        
+        println("params are \(params)")
+        request.POST(apiCreateSpot, parameters: params, success: {(response: HTTPResponse) in
+            println("Got data from \(apiBaseUrl + apiCreateSpot)")
+            },failure: {(error: NSError, response: HTTPResponse?) in
+                println("print the error: \(error)")
+                println("print the response: \(response)")
+        })
+        
+        mapView.removeAnnotation(newSpot)
+        
+        // Clear the input fields
+        addSpotDetailView.hidden = true
+        addSpotNameField.text = ""
+        addSpotNameField.resignFirstResponder()
+        addSpotDescriptionField.text = ""
+        addSpotDescriptionField.resignFirstResponder()
     }
     
     @IBAction func centerOnLocation(sender: AnyObject) {
@@ -140,11 +158,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
             if pinView == nil {
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                pinView!.canShowCallout = true
-                pinView!.pinColor = .Green
-                let calloutBtn = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
-                calloutBtn.addTarget(self, action: "showSpotDetails:", forControlEvents: UIControlEvents.TouchUpInside)
-                pinView?.rightCalloutAccessoryView = calloutBtn as UIView
+                let spot = annotation as BSSpot
+                if spot.id == -1 {
+                    pinView!.pinColor = .Purple
+                }
+                else {
+                    pinView!.canShowCallout = true
+                    pinView!.pinColor = .Green
+                    let calloutBtn = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+                    calloutBtn.addTarget(self, action: "showSpotDetails:", forControlEvents: UIControlEvents.TouchUpInside)
+                    pinView?.rightCalloutAccessoryView = calloutBtn as UIView
+                }
             }
             else {
                 pinView!.annotation = annotation

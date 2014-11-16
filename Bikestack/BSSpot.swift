@@ -10,20 +10,26 @@ import Foundation
 import MapKit
 
 class BSSpot : NSObject, MKAnnotation {
-    let coordinate: CLLocationCoordinate2D
+    var coordinate: CLLocationCoordinate2D
     var title: String
     var subtitle: String
-    let id: Int
-    let capacity: Int?
+    var id: Int
+    var capacity: Int
     
     init(jsonDict:NSDictionary) {
         id = jsonDict["id"] as Int
-        if (jsonDict.valueForKey("capacity") != nil) {
-            capacity = jsonDict["capacity"] as? Int
+        if let cap = jsonDict["capacity"] as? Int {
+//        if (jsonDict.valueForKey("capacity") != nil) {
+            capacity = cap
+        }
+        else {
+            capacity = 1
         }
         coordinate = CLLocationCoordinate2D(latitude: jsonDict["lat"] as Double, longitude: jsonDict["lon"] as Double)
         title = jsonDict["name"] as String
         subtitle = jsonDict["description"] as String
+        
+        super.init()
     }
     
     init(coord:CLLocationCoordinate2D, name:String, desc:String, cap:Int) {
@@ -32,5 +38,6 @@ class BSSpot : NSObject, MKAnnotation {
         subtitle = desc
         id = -1
         capacity = cap
+        super.init()
     }
 }
