@@ -253,6 +253,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
         spotDetailView.hidden = true
     }
+    
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        if newState == MKAnnotationViewDragState.Ending {
+            let droppedAt: CLLocationCoordinate2D = view.annotation.coordinate;
+            println("setting new coordinates for new point \(droppedAt.latitude)")
+            currentSpots[-1]?.coordinate = droppedAt
+        }
+    }
 
     func addPointsFromList(list: Array< Dictionary<String,AnyObject> >) {
         // TODO: Need to get rid of old spots??
