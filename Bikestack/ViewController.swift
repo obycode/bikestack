@@ -14,8 +14,9 @@ let apiGetSpots = "/api/spots" //GET
 let apiCreateSpot = "/api/spots"  // POST: ["lock_up": ["name":, "lat":, "lon", "description":, "capacity":]]
 let apiFindSpots = "/api/spots/find" // POST: ["lock_up": ["lat":, "lon":, "rad":<miles, defaults to .1>]]
 let apiVote = "/api/spots/vote" // POST: ["vote": ["lock_up_id":"1","direction":"up"]]
+let apiAddPhoto = "api/spots/add_photo"
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -179,6 +180,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         })
     }
     
+    @IBAction func addImage(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            println("Button capture")
+            var imag = UIImagePickerController()
+            imag.delegate = self
+            imag.sourceType = UIImagePickerControllerSourceType.Camera;
+            //imag.mediaTypes = [kUTTypeImage];
+            imag.allowsEditing = false
+            self.presentViewController(imag, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+        let selectedImage : UIImage = image
+        //var tempImage:UIImage = editingInfo[UIImagePickerControllerOriginalImage] as UIImage
+        spotDetailImageView.image = selectedImage
+
+//        let annotations = mapView.selectedAnnotations
+//        if annotations.count != 1 {
+//            return
+//        }
+//        let selectedSpot: BSSpot = mapView.selectedAnnotations[0] as BSSpot
+//        var request = HTTPTask()
+//        request.baseURL = apiBaseUrl
+//        let imageData = UIImageJPEGRepresentation(selectedImage, 0.1)
+//        let params: Dictionary<String, AnyObject> = ["id" : selectedSpot.id, "image" : imageData]
+//        request.POST(apiAddPhoto, parameters: params, success: {(response: HTTPResponse) in
+//            println("response was: \(response.text())")
+//            }, failure: {(error: NSError, response: HTTPResponse?) in
+//                println("print the error: \(error)")
+//                println("print the response: \(response?.text())")
+//        })
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         // Center to current location on first launch
         if (!inited) {
