@@ -11,8 +11,9 @@ import MapKit
 
 let apiBaseUrl = "https://bikestack.herokuapp.com"
 let apiGetSpots = "/api/spots" //GET
-let apiCreateSpot = "/api/spots"  // POST: lock_up -> (name, lat, lon, description, capacity)
-let apiFindSpots = "/api/spots/find" // POST: lat, lon, radius (miles, defaults to .1)
+let apiCreateSpot = "/api/spots"  // POST: ["lock_up": ["name":, "lat":, "lon", "description":, "capacity"]]
+let apiFindSpots = "/api/spots/find" // POST: ["lat":, "lon":, "radius":<miles, defaults to .1>]
+let apiVote = "/api/spots/vote" // POST: ["vote": ["lock_up_id":"1","direction":"up"]]
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -21,10 +22,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var spotDetailView: UIView!
     @IBOutlet weak var spotDetailTitle: UILabel!
     @IBOutlet weak var spotDetailSubtitle: UILabel!
+    @IBOutlet weak var spotDetailRating: UILabel!
     @IBOutlet weak var spotDetailImageView: UIImageView!
     @IBOutlet weak var addSpotDetailView: UIView!
     @IBOutlet weak var addSpotNameField: UITextField!
     @IBOutlet weak var addSpotDescriptionField: UITextView!
+
     
     var locationManager: CLLocationManager!
     var currentSpots = [Int: BSSpot]() //: Dictionary<Int, BSSpot>
@@ -103,6 +106,60 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let region = MKCoordinateRegion(center: locationManager.location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         mapView.setRegion(region, animated: true)
 //        mapView.setCenterCoordinate(locationManager.location.coordinate, animated: true)
+    }
+    
+    @IBAction func thumbsUp(sender: AnyObject) {
+        let annotations = mapView.selectedAnnotations
+        if annotations.count != 1 {
+            return
+        }
+        
+        let selectedSpot: BSSpot = mapView.selectedAnnotations[0] as BSSpot
+        
+        let dict: Dictionary<String, AnyObject> = ["lock_up_id": selectedSpot.id, "direction": "up"]
+        let params: Dictionary<String, AnyObject> = ["vote": dict]
+        var request = HTTPTask()
+        request.baseURL = apiBaseUrl
+        //The expected response will be JSON and be converted to an object return by NSJSONSerialization instead of a NSData.
+        request.responseSerializer = JSONResponseSerializer()
+        println("params are \(params)")
+        request.POST(apiVote, parameters: params,  success: {(response: HTTPResponse) in
+            if let voteDict = response.responseObject as? Dictionary<String,AnyObject> {
+                self.spotDetailRating.text = voteDict["rating"] as? String
+            } else {
+                println("response was not a dict: \(response)")
+            }
+            }, failure: {(error: NSError, response: HTTPResponse?) in
+                println("print the error: \(error)")
+                println("print the response: \(response)")
+        })
+    }
+    
+    @IBAction func thumbsDown(sender: AnyObject) {
+        let annotations = mapView.selectedAnnotations
+        if annotations.count != 1 {
+            return
+        }
+        
+        let selectedSpot: BSSpot = mapView.selectedAnnotations[0] as BSSpot
+        
+        let dict: Dictionary<String, AnyObject> = ["lock_up_id": selectedSpot.id, "direction": "down"]
+        let params: Dictionary<String, AnyObject> = ["vote": dict]
+        var request = HTTPTask()
+        request.baseURL = apiBaseUrl
+        //The expected response will be JSON and be converted to an object return by NSJSONSerialization instead of a NSData.
+        request.responseSerializer = JSONResponseSerializer()
+        println("params are \(params)")
+        request.POST(apiVote, parameters: params,  success: {(response: HTTPResponse) in
+            if let voteDict = response.responseObject as? Dictionary<String,AnyObject> {
+                self.spotDetailRating.text = voteDict["rating"] as? String
+            } else {
+                println("response was not a dict: \(response)")
+            }
+            }, failure: {(error: NSError, response: HTTPResponse?) in
+                println("print the error: \(error)")
+                println("print the response: \(response)")
+        })
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -216,6 +273,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         spotDetailTitle.text = selectedSpot.title
         spotDetailSubtitle.text = selectedSpot.subtitle
         spotDetailImageView = UIImageView(image: UIImage(named: "exampleBikeRack.jpg"))
+//        spotDetailRating.text = selectedSpot.rating
         spotDetailView.hidden = false
     }
     

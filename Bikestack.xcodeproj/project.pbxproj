@@ -26,6 +26,10 @@
 		CF849F2D1A17F5EE0074B4DA /* exampleBikeRack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF849F2C1A17F5EE0074B4DA /* exampleBikeRack.jpg */; };
 		CF849F2F1A17FC0D0074B4DA /* locationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F2E1A17FC0D0074B4DA /* locationArrow@2x.png */; };
 		CF849F311A181D3F0074B4DA /* splashScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF849F301A181D3F0074B4DA /* splashScreen.jpg */; };
+		CF849F361A182E0F0074B4DA /* thumbUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F321A182E0F0074B4DA /* thumbUp.png */; };
+		CF849F371A182E0F0074B4DA /* thumbDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F331A182E0F0074B4DA /* thumbDown.png */; };
+		CF849F381A182E0F0074B4DA /* thumbDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F341A182E0F0074B4DA /* thumbDown@2x.png */; };
+		CF849F391A182E0F0074B4DA /* thumbUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF849F351A182E0F0074B4DA /* thumbUp@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		CF849F2C1A17F5EE0074B4DA /* exampleBikeRack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = exampleBikeRack.jpg; path = ../../../images/exampleBikeRack.jpg; sourceTree = "<group>"; };
 		CF849F2E1A17FC0D0074B4DA /* locationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locationArrow@2x.png"; path = "../../../images/locationArrow@2x.png"; sourceTree = "<group>"; };
 		CF849F301A181D3F0074B4DA /* splashScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = splashScreen.jpg; path = ../../../images/splashScreen.jpg; sourceTree = "<group>"; };
+		CF849F321A182E0F0074B4DA /* thumbUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbUp.png; path = ../../../images/thumbUp.png; sourceTree = "<group>"; };
+		CF849F331A182E0F0074B4DA /* thumbDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbDown.png; path = ../../../images/thumbDown.png; sourceTree = "<group>"; };
+		CF849F341A182E0F0074B4DA /* thumbDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thumbDown@2x.png"; path = "../../../images/thumbDown@2x.png"; sourceTree = "<group>"; };
+		CF849F351A182E0F0074B4DA /* thumbUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thumbUp@2x.png"; path = "../../../images/thumbUp@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +158,10 @@
 		CF849F1F1A17B47E0074B4DA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CF849F321A182E0F0074B4DA /* thumbUp.png */,
+				CF849F331A182E0F0074B4DA /* thumbDown.png */,
+				CF849F341A182E0F0074B4DA /* thumbDown@2x.png */,
+				CF849F351A182E0F0074B4DA /* thumbUp@2x.png */,
 				CF849F301A181D3F0074B4DA /* splashScreen.jpg */,
 				CF849F2E1A17FC0D0074B4DA /* locationArrow@2x.png */,
 				CF849F2C1A17F5EE0074B4DA /* exampleBikeRack.jpg */,
@@ -246,13 +258,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF849F2D1A17F5EE0074B4DA /* exampleBikeRack.jpg in Resources */,
+				CF849F381A182E0F0074B4DA /* thumbDown@2x.png in Resources */,
 				CF849F271A17C0E80074B4DA /* addSpot@2x.png in Resources */,
 				CF849F231A17B5A20074B4DA /* locationArrow.png in Resources */,
+				CF849F361A182E0F0074B4DA /* thumbUp.png in Resources */,
 				CF849EF91A170ACB0074B4DA /* Main.storyboard in Resources */,
 				CF849EFE1A170ACB0074B4DA /* LaunchScreen.xib in Resources */,
 				CF849F311A181D3F0074B4DA /* splashScreen.jpg in Resources */,
+				CF849F391A182E0F0074B4DA /* thumbUp@2x.png in Resources */,
 				CF849F2F1A17FC0D0074B4DA /* locationArrow@2x.png in Resources */,
 				CF849EFB1A170ACB0074B4DA /* Images.xcassets in Resources */,
+				CF849F371A182E0F0074B4DA /* thumbDown.png in Resources */,
 				CF849F251A17BC610074B4DA /* addSpot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

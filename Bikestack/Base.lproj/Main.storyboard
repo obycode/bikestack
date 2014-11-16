@@ -50,6 +50,30 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exampleBikeRack.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2pW-d8-RKv">
                                         <rect key="frame" x="29" y="48" width="162" height="113"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPo-V6-Ix4">
+                                        <rect key="frame" x="8" y="176" width="64" height="64"/>
+                                        <state key="normal" image="thumbDown.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="thumbsDown:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Yi3-uH-vFR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWv-r9-JdH">
+                                        <rect key="frame" x="148" y="176" width="64" height="64"/>
+                                        <state key="normal" image="thumbUp.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="thumbsUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kvr-RO-p9l"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbm-7E-Wxe">
+                                        <rect key="frame" x="85" y="194" width="51" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -83,7 +107,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBb-oH-cMq">
-                                        <rect key="frame" x="106" y="74" width="186" height="72"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -127,6 +150,7 @@
                         <outlet property="addSpotNameField" destination="V3U-TC-o7g" id="BHl-tt-oN9"/>
                         <outlet property="mapView" destination="bHi-UY-kkI" id="g1D-63-IBh"/>
                         <outlet property="spotDetailImageView" destination="2pW-d8-RKv" id="1VG-YO-EZ1"/>
+                        <outlet property="spotDetailRating" destination="Hbm-7E-Wxe" id="lGD-6o-rHh"/>
                         <outlet property="spotDetailSubtitle" destination="kh2-i1-vj2" id="GZo-nW-eOT"/>
                         <outlet property="spotDetailTitle" destination="Wgg-RJ-xul" id="Yf3-I9-Ubg"/>
                         <outlet property="spotDetailView" destination="5Uk-X6-LNy" id="aNh-w3-Y4y"/>
@@ -140,5 +164,7 @@
         <image name="addSpot.png" width="64" height="64"/>
         <image name="exampleBikeRack.jpg" width="324" height="227"/>
         <image name="locationArrow.png" width="64" height="64"/>
+        <image name="thumbDown.png" width="64" height="64"/>
+        <image name="thumbUp.png" width="64" height="64"/>
     </resources>
 </document>
