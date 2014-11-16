@@ -47,7 +47,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exampleBikeRack.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2pW-d8-RKv">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="addImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="2pW-d8-RKv">
                                         <rect key="frame" x="29" y="48" width="162" height="113"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPo-V6-Ix4">
@@ -162,8 +162,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addImage.png" width="162" height="113"/>
         <image name="addSpot.png" width="64" height="64"/>
-        <image name="exampleBikeRack.jpg" width="324" height="227"/>
         <image name="locationArrow.png" width="64" height="64"/>
         <image name="thumbDown.png" width="64" height="64"/>
         <image name="thumbUp.png" width="64" height="64"/>

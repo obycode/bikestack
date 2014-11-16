@@ -15,11 +15,12 @@ class BSSpot : NSObject, MKAnnotation {
     var subtitle: String
     var id: Int
     var capacity: Int
+    var rating: Int
+    var photoUrl: String
     
     init(jsonDict:NSDictionary) {
         id = jsonDict["id"] as Int
         if let cap = jsonDict["capacity"] as? Int {
-//        if (jsonDict.valueForKey("capacity") != nil) {
             capacity = cap
         }
         else {
@@ -28,6 +29,18 @@ class BSSpot : NSObject, MKAnnotation {
         coordinate = CLLocationCoordinate2D(latitude: jsonDict["lat"] as Double, longitude: jsonDict["lon"] as Double)
         title = jsonDict["name"] as String
         subtitle = jsonDict["description"] as String
+        if let url = jsonDict["photo_file_name"] as? String {
+            photoUrl = url
+        }
+        else {
+            photoUrl = ""
+        }
+        if let r = jsonDict["rating"] as? Int {
+            rating = r
+        }
+        else {
+            rating = 0
+        }
         
         super.init()
     }
@@ -38,6 +51,8 @@ class BSSpot : NSObject, MKAnnotation {
         subtitle = desc
         id = -1
         capacity = cap
+        photoUrl = ""
+        rating = 0
         super.init()
     }
 }

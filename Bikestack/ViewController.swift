@@ -12,7 +12,7 @@ import MapKit
 let apiBaseUrl = "https://bikestack.herokuapp.com"
 let apiGetSpots = "/api/spots" //GET
 let apiCreateSpot = "/api/spots"  // POST: ["lock_up": ["name":, "lat":, "lon", "description":, "capacity"]]
-let apiFindSpots = "/api/spots/find" // POST: ["lat":, "lon":, "radius":<miles, defaults to .1>]
+let apiFindSpots = "/api/spots/find" // POST: ["lock_up": ["lat":, "lon":, "rad":<miles, defaults to .1>]]
 let apiVote = "/api/spots/vote" // POST: ["vote": ["lock_up_id":"1","direction":"up"]]
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -128,11 +128,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             if let voteDict = response.responseObject as? Dictionary<String,AnyObject> {
                 self.spotDetailRating.text = voteDict["rating"] as? String
             } else {
-                println("response was not a dict: \(response)")
+                println("response was not a dict: \(response.text())")
             }
             }, failure: {(error: NSError, response: HTTPResponse?) in
                 println("print the error: \(error)")
-                println("print the response: \(response)")
+                println("print the response: \(response?.text())")
         })
     }
     
@@ -155,11 +155,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             if let voteDict = response.responseObject as? Dictionary<String,AnyObject> {
                 self.spotDetailRating.text = voteDict["rating"] as? String
             } else {
-                println("response was not a dict: \(response)")
+                println("response was not a dict: \(response.text())")
             }
             }, failure: {(error: NSError, response: HTTPResponse?) in
                 println("print the error: \(error)")
-                println("print the response: \(response)")
+                println("print the response: \(response?.text())")
         })
     }
     
@@ -197,11 +197,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             if let spotList = response.responseObject as? Array< Dictionary<String,AnyObject> > {
                 self.addPointsFromList(spotList)
             } else {
-                println("response was not a dict: \(response)")
+                println("response was not a dict: \(response.text())")
             }
             }, failure: {(error: NSError, response: HTTPResponse?) in
                 println("print the error: \(error)")
-                println("print the response: \(response)")
+                println("print the response: \(response?.text())")
         })
     }
     
@@ -282,8 +282,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         spotDetailTitle.text = selectedSpot.title
         spotDetailSubtitle.text = selectedSpot.subtitle
-        spotDetailImageView = UIImageView(image: UIImage(named: "exampleBikeRack.jpg"))
-//        spotDetailRating.text = selectedSpot.rating
+        if !selectedSpot.photoUrl.isEmpty {
+            var url = NSURL(fileURLWithPath: selectedSpot.photoUrl)
+            var image: UIImage?
+            var request: NSURLRequest = NSURLRequest(URL: url!)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                image = UIImage(data: data)
+                self.spotDetailImageView.image = image
+            })
+        }
+        spotDetailRating.text = String(selectedSpot.rating)
         spotDetailView.hidden = false
     }
     
