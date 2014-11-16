@@ -55,11 +55,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     @IBAction func submitPressed(sender: AnyObject) {
-        
-        let newSpot = BSSpot(coord: locationManager.location.coordinate, name: "", desc: "", cap: 1)
+        let newSpot = BSSpot(coord: mapView.region.center, name: "", desc: "", cap: 1)
         // -1 is the holder for a new spot
         currentSpots[-1] = newSpot
-        
+
         mapView.addAnnotation(newSpot)
         
         addSpotDetailView.hidden = false
@@ -71,7 +70,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         addSpotNameField.resignFirstResponder()
         addSpotDescriptionField.text = ""
         addSpotDescriptionField.resignFirstResponder()
+        let spot = currentSpots[-1]
         currentSpots[-1] = nil
+        mapView.removeAnnotation(spot)
     }
     
     @IBAction func addNewSpot(sender: AnyObject) {
@@ -218,6 +219,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 let spot = annotation as BSSpot
                 if spot.id == -1 {
                     pinView!.pinColor = .Purple
+                    pinView!.draggable = true
                 }
                 else {
                     pinView!.canShowCallout = true
