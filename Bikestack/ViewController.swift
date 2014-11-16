@@ -194,6 +194,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let params: Dictionary<String,AnyObject> = ["lock_up": dict]
         println("params are \(params)")
         request.POST(apiFindSpots, parameters: params, success: {(response: HTTPResponse) in
+//        request.GET(apiGetSpots, parameters: nil, success: {(response: HTTPResponse) in
             if let spotList = response.responseObject as? Array< Dictionary<String,AnyObject> > {
                 self.addPointsFromList(spotList)
             } else {
@@ -282,13 +283,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         spotDetailTitle.text = selectedSpot.title
         spotDetailSubtitle.text = selectedSpot.subtitle
-        if !selectedSpot.photoUrl.isEmpty {
-            var url = NSURL(fileURLWithPath: selectedSpot.photoUrl)
+        if true || !selectedSpot.photoUrl.isEmpty {
+            var url = NSURL(fileURLWithPath: "http://upload.wikimedia.org/wikipedia/commons/0/00/Bicycle-icon.svg"/*selectedSpot.photoUrl*/)
+            println("getting photo from \(selectedSpot.photoUrl)")
             var image: UIImage?
             var request: NSURLRequest = NSURLRequest(URL: url!)
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                image = UIImage(data: data)
-                self.spotDetailImageView.image = image
+                if error == nil {
+                    image = UIImage(data: data)
+                    self.spotDetailImageView.image = image
+                }
             })
         }
         spotDetailRating.text = String(selectedSpot.rating)

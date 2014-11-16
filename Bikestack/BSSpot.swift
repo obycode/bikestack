@@ -35,7 +35,7 @@ class BSSpot : NSObject, MKAnnotation {
         else {
             photoUrl = ""
         }
-        if let r = jsonDict["rating"] as? Int {
+        if let r = jsonDict["total_votes"] as? Int {
             rating = r
         }
         else {

@@ -82,6 +82,9 @@ public class HTTPRequestSerializer: NSObject {
     func createRequest(url: NSURL, method: HTTPMethod, parameters: Dictionary<String,AnyObject>?) -> (request: NSURLRequest, error: NSError?) {
         
         var request = newRequest(url, method: method)
+        // TODO: Hard-coded this to request JSON; may need to change this later
+//        println("setting the content type to json")
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         var isMulti = false
         //do a check for upload objects to see if we are multi form
         if let params = parameters {
